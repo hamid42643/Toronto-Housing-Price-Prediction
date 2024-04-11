@@ -28,7 +28,7 @@ def fetch_coordinates(address):
         "limit": "1"
     }
     headers = {
-        "X-RapidAPI-Key": "fde14828b3mshf6e3fb96f616c1dp1f1597jsn9a25fc2af5f2",
+        "X-RapidAPI-Key": api_key_rapidapi,
         "X-RapidAPI-Host": "geoapify-platform.p.rapidapi.com"
     }
     try:
@@ -94,12 +94,12 @@ def process_rows(rows, writer):
 def main():
     try:
         # Open the input CSV file
-        with open('dataset.csv', mode='r') as input_file:
+        with open('zillow_homes_sold_raleigh.csv', mode='r') as input_file:
             reader = csv.DictReader(input_file)
             rows = list(reader)
         
         # Open the output CSV file
-        with open('all_updated2.csv', mode='w', newline='') as output_file:
+        with open('zillow_homes_sold_raleigh_cordinations-added.csv', mode='w', newline='') as output_file:
             fieldnames = reader.fieldnames
             writer = csv.DictWriter(output_file, fieldnames=fieldnames)
             
